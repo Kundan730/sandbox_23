@@ -1,5 +1,6 @@
 import { LaunchBtn } from "@/components/CtaBtn";
 import { ShoutOutMarque } from "@/components/ShoutOutsMarque";
+import { LandingPageCommand } from "@/components/Command";
 export default function Home() {
   return (
     <div
@@ -21,9 +22,10 @@ export default function Home() {
             work on Sandbox. Share, get feedback, sell, and inspire—all in one
             place!
           </span>
-          <div className="flex justify-start w-full pt-5">
+          {/* <div className="flex justify-start w-full pt-5">
             <LaunchBtn />
-          </div>
+          </div> */}
+          <LandingPageCommand />
         </div>
         <div className="w-[30%] h-full flex  items-center flex-col overflow-hidden">
           <div className="px-1 pt-4 w-full justify-center items-center flex flex-col">
