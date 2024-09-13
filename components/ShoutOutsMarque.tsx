@@ -1,13 +1,13 @@
 import Marquee from "@/components/magicui/marquee";
 
-import { BiSolidUpvote } from "react-icons/bi";
+import { BiStar } from "react-icons/bi";
 const data = [
   {
     title: "Mneme AI",
     description: "Chat with your notes, documents and books on-device",
     headline: "Chat with your notes, documents and books on-device",
     likes: 19,
-    tags: ["Solo maker", "Productivity", "Notes"],
+    tags: ["Solo maker", "Productivity"],
     imageLink:
       "https://ph-files.imgix.net/c125cb60-ecf1-4116-b170-9699c2ea4fb2.png?auto=compress&codec=mozjpeg&cs=strip&auto=format&w=48&h=48&fit=crop&dpr=2",
   },
@@ -16,7 +16,7 @@ const data = [
     description: "AI-powered phone call app with live translation",
     headline: "AI-powered phone call app with live translation",
     likes: 128,
-    tags: ["Productivity", "Languages", "Artificial Intelligence"],
+    tags: ["Productivity", "Languages"],
     imageLink:
       "https://ph-files.imgix.net/1675ed36-35cf-4d0c-a55d-8cd5c573992c.png?auto=compress&codec=mozjpeg&cs=strip&auto=format&w=72&h=72&fit=crop&dpr=2",
   },
@@ -85,12 +85,18 @@ const ShoutOutCard: React.FC<ShoutOutItem> = ({
   tags,
 }) => {
   return (
-    <div className="w-full flex flex-col p-4 border border-gray-200 rounded-lg shadow-sm">
+    <div
+      className="w-full  flex flex-col p-4 rounded-md"
+      style={{
+        textTransform: "lowercase",
+        backgroundImage: "url('/top-left-right.svg')",
+      }}
+    >
       <div className="flex items-center mb-2">
         <img
           src={imageLink}
           alt={title}
-          className="w-12 h-12 rounded-lg mr-3"
+          className="w-12 h-12 rounded-lg border mr-3"
         />
         <div>
           <h3 className="font-bold text-lg">{title}</h3>
@@ -98,15 +104,13 @@ const ShoutOutCard: React.FC<ShoutOutItem> = ({
         </div>
       </div>
       <p className="text-sm mb-2">{description}</p>
-      <div className="flex items-center justify-between">
-        <div className="flex items-center text-blue-500">
-          <BiSolidUpvote size={16} className="mr-1" />
-          <span className="text-sm">
-            {likes !== null ? `${likes} likes` : "N/A"}
-          </span>
+      <div className="flex items-center justify-between  space-x-5 flex-wrap">
+        <div className="flex items-center justify-center text-black">
+          <BiStar size={16} className="mr-1" />
+          <span className="text-sm ">{likes !== null ? `${likes}` : "0"}</span>
         </div>
         <div className="flex flex-wrap gap-1">
-          {tags.map((tag, index) => (
+          {tags.slice(0, 2).map((tag, index) => (
             <span
               key={index}
               className="text-xs bg-gray-200 rounded-full px-2 py-1"

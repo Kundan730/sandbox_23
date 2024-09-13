@@ -9,12 +9,16 @@ export default function Home() {
     >
       <div className="flex w-full h-screen overflow-y-hidden">
         <div
-          className="w-[70%] h-full"
+          className="w-[70%] h-full flex flex-col items-center pl-8 pt-12"
           style={{ backgroundImage: "url('./right.svg')" }}
-        ></div>
+        >
+          <h1 className="text-6xl">
+            Showcase Your Project in One Go with Sandbox!
+          </h1>
+        </div>
         <div className="w-[30%] h-full flex  items-center flex-col overflow-hidden">
           <div className="px-1 pt-4 w-full justify-center items-center flex flex-col">
-            <h3 className="text-xl lowercase ">shoutouts</h3>
+            <h3 className="text-xl lowercase underline ">shoutouts</h3>
             <div
               className="w-full h-1 mt-4"
               style={{
