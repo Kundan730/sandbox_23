@@ -8,7 +8,7 @@ export const HeaderComponent = () => {
       }}
     >
       <header
-        className="w-full z-10 flex justify-between items-center custom-dashed-border  px-10 py-3 lg:py-5 bg-white text-[1.1rem] text-black "
+        className="w-full z-10 m-0 flex justify-between items-center custom-dashed-border  py-3 lg:py-5 bg-white text-[1.1rem] text-black px-5 "
         style={{
           backgroundImage: "url('/left-right.svg')",
           fontWeight: "500",
@@ -40,12 +40,12 @@ export const HeaderComponent = () => {
           </Link>
         </div>
       </header>
-      <div
+      {/* <div
         className="w-full h-3 bg-white"
         style={{
           backgroundImage: "url('/top.svg')",
         }}
-      ></div>
+      ></div> */}
     </div>
   );
 };
