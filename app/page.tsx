@@ -1,5 +1,4 @@
-import Image from "next/image";
-
+import { ShoutOutMarque } from "@/components/ShoutOutsMarque";
 export default function Home() {
   return (
     <div
@@ -9,8 +8,22 @@ export default function Home() {
       }}
     >
       <div className="flex w-full h-screen overflow-y-hidden">
-        <div className="w-4/6 h-full border-r"></div>
-        <div className="w-2/6 h-full border-l"></div>
+        <div
+          className="w-[70%] h-full"
+          style={{ backgroundImage: "url('./right.svg')" }}
+        ></div>
+        <div className="w-[30%] h-full flex  items-center flex-col overflow-hidden">
+          <div className="px-1 pt-4 w-full justify-center items-center flex flex-col">
+            <h3 className="text-xl lowercase ">shoutouts</h3>
+            <div
+              className="w-full h-1 mt-4"
+              style={{
+                backgroundImage: "url('/top.svg')",
+              }}
+            ></div>
+          </div>
+          <ShoutOutMarque />
+        </div>
       </div>
     </div>
   );
