@@ -11,7 +11,6 @@ import Spinner from "@/components/spinner";
 import { getNotifications, getProductsByUserId } from "@/lib/server-actions";
 import { redirect } from "next/navigation";
 import { Suspense } from "react";
-import {Footer}  from "@/components/Fotter";
 
 const font = DM_Sans({ subsets: ['latin'] });
 export const metadata: Metadata = {
@@ -53,7 +52,7 @@ const RootLayout = async ({
         </Suspense>
         <Toaster />
         <Analytics />
-        <Footer/>
+     
       </body>  
     </html>    
   );
