@@ -25,6 +25,9 @@ const Menu = () => {
         <Link href={'/dashboard/categories'} className="hover:text-slate-400 py-4">
           Categories
         </Link>
+        <Link href={'/admin'} className="hover:text-slate-400 py-4">
+          Admin
+        </Link>
 
         <div
           onMouseEnter={() => setShowCommunityMenu(true)}
@@ -34,7 +37,9 @@ const Menu = () => {
           Community {showCommunityMenu && <CommunityMenu />}
         </div>
 
-        <div className="hover:text-slate-400 py-4">Advertise</div>
+        <Link href={'/dashboard'} className="hover:text-slate-400 py-4">
+          Dashboard
+        </Link>
       </div>
     </div>
   );
