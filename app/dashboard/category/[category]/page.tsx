@@ -42,7 +42,7 @@ const CategoryPage: React.FC<{ params: IParams }> = async ({ params }) => {
       <h1 className="text-4xl font-semibold pt-10">{capitalizedCategory}</h1>
       <p className="text-gray-500 pt-2">
         Check out whats&apos;s going on in the {capitalizedCategory}! Discover
-        new products
+        new projects
       </p>
 
       <div className="pt-10 space-y-4">

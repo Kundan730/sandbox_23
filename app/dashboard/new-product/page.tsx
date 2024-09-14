@@ -136,7 +136,7 @@ const NewProduct = () => {
           <div className="flex items-center gap-4  mx-auto">
             <PiXCircleFill className="text-red-500 text-3xl" />
             <div className="text-md font-semibold">
-              Please enter at least 4 characters for the product name.
+              Please enter at least 4 characters for the  name.
             </div>
           </div>
         </>,
@@ -154,7 +154,7 @@ const NewProduct = () => {
           <div className="flex items-center gap-4  mx-auto">
             <PiXCircleFill className="text-red-500 text-3xl" />
             <div className="text-md font-semibold">
-              Please select at least 3 categories for the product.
+              Please select at least 3 categories for the .
             </div>
           </div>
         </>,
@@ -204,7 +204,7 @@ const NewProduct = () => {
           <div className="flex items-center gap-4  mx-auto">
             <PiXCircleFill className="text-red-500 text-3xl" />
             <div className="text-md font-semibold">
-              Please upload a logo for the product.
+              Please upload a logo for the project.
             </div>
           </div>
         </>,
@@ -221,7 +221,7 @@ const NewProduct = () => {
           <div className="flex items-center gap-4  mx-auto">
             <PiXCircleFill className="text-red-500 text-3xl" />
             <div className="text-md font-semibold">
-              Upload at least 3 images for the product.
+              Upload at least 3 images for the project.
             </div>
           </div>
         </>,
@@ -255,7 +255,7 @@ const NewProduct = () => {
           <div className="flex items-center gap-4  mx-auto">
             <PiXCircleFill className="text-red-500 text-3xl" />
             <div className="text-md font-semibold">
-              Please enter at least one link for the product.
+              Please enter at least one link for the project.
             </div>
           </div>
         </>,
@@ -345,14 +345,14 @@ const NewProduct = () => {
 
           
           className="space-y-10">
-            <h1 className="text-4xl font-semibold"> 📦 New product</h1>
+            <h1 className="text-4xl font-semibold"> 📦 New project</h1>
             <p className="text-xl font-light mt-4 leading-8">
-              Ready to showcase your product to the world? You came to the right
+              Ready to showcase your project to the world? You came to the right
               place. Follow the steps below to get started.
             </p>
 
             <div className="mt-10">
-              <h2 className="font-medium">Name of the product</h2>
+              <h2 className="font-medium">Name of the project</h2>
               <input
                 type="text"
                 value={name}
@@ -368,7 +368,7 @@ const NewProduct = () => {
             <div className="mt-10">
               <h2 className="font-medium">
                 Slug (URL) - This will be used to create a unique URL for
-                yourproduct
+                your project
               </h2>
 
               <input
@@ -391,11 +391,11 @@ const NewProduct = () => {
           className="space-y-10">
             <h1 className="text-4xl font-semibold">
               {" "}
-              📊 What category does your product belong to ?{" "}
+              📊 What category does your project belong to ?{" "}
             </h1>
             <p className="text-xl font-light mt-4 leading-8">
-              Choose at least 3 categories that best fits your product. This
-              will people discover your product
+              Choose at least 3 categories that best fits your project. This
+              will people discover your project
             </p>
 
             <div className="mt-10">
@@ -412,7 +412,7 @@ const NewProduct = () => {
                       className={`text-xs md:text-sm p-2 cursor-pointer w-full text-center
                      ${
                        selectedCategories.includes(category)
-                         ? "bg-[#ff6154] text-white rounded-full"
+                         ? "bg-[black] text-white rounded-full"
                          : "text-black"
                      }`}
                     >
@@ -433,9 +433,9 @@ const NewProduct = () => {
           transition={{ duration: 0.3 }}
           
           className="space-y-10">
-            <div className="text-4xl font-semibold">📝 Product Details</div>
+            <div className="text-4xl font-semibold">📝 project Details</div>
             <p className="text-xl font-light mt-4 leading-8">
-              Keep it simple and clear. Describe your product in a way that
+              Keep it simple and clear. Describe your project in a way that
               makes it easy for people to understand what it does.
             </p>
 
@@ -479,11 +479,11 @@ const NewProduct = () => {
           
           className="space-y-10">
             <h1 className="text-4xl font-semibold">
-              🖼️ Add images to showcase your product
+              🖼️ Add images to showcase your project
             </h1>
             <p className="text-xl font-light mt-4 leading-8">
-              Include images that best represent your product. This will help
-              people understand what your product looks like.
+              Include images that best represent your project. This will help
+              people understand what your project looks like.
             </p>
 
             <div className="mt-10">
@@ -778,7 +778,7 @@ const NewProduct = () => {
                 ) : (
                   <button
                     onClick={nextStep}
-                    className="bg-[#ff6154] text-white py-2 px-4 rounded-md mt-4 items-end"
+                    className="bg-[black] text-white py-2 px-4 rounded-md mt-4 items-end"
                   >
                     {step === 7 ? "Submit" : "Continue"}
                   </button>

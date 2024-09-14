@@ -9,7 +9,7 @@ const Categories = async () => {
       <div className="bg-gray-100 rounded-md w-full p-10 ">
         <h1 className="text-4xl font-semibold">Categories</h1>
         <p className="text-gray-500 pt-2">
-          Discover new products in different categories and find what you need
+          Discover new projects in different categories and find what you need
           to make your life easier
         </p>
       </div>
@@ -33,7 +33,7 @@ const Categories = async () => {
               <div className="md:flex justify-between">
                 <h2 className="md:text-2xl font-semibold">{category.name}</h2>
                 <p className="hover:underline cursor-pointer text-sm">
-                  View all products
+                  View all projects
                 </p>
               </div>
             </Link>
