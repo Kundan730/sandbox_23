@@ -12,6 +12,7 @@ import { getNotifications, getProductsByUserId } from "@/lib/server-actions";
 import { redirect } from "next/navigation";
 import { Suspense } from "react";
 
+
 const font = DM_Sans({ subsets: ['latin'] });
 export const metadata: Metadata = {
   title: 'sanbox 23',
@@ -52,7 +53,6 @@ const RootLayout = async ({
         </Suspense>
         <Toaster />
         <Analytics />
-     
       </body>  
     </html>    
   );
