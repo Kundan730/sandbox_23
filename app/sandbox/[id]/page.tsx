@@ -117,7 +117,7 @@ export default function Component() {
   };
   return (
     <div
-      className="w-full mx-auto p-6 font-sans bg-white"
+      className="w-full mx-auto p-6 bg-white"
       style={{
         backgroundImage: "url('/top-left-right.svg')",
       }}
@@ -127,106 +127,66 @@ export default function Component() {
           <img
             src={projectDet.logo}
             alt={`${projectDet.name} Logo`}
-            width={100}
-            height={100}
-            className="rounded-xl"
+            className="rounded-xl h-48 w-auto"
           />
           <div>
             <h1 className="text-3xl font-bold">{projectDet.name}</h1>
             <p className="text-gray-600">{projectDet.headline}</p>
-          </div>
-        </div>
-        <div className="flex flex-col items-center space-y-4">
-          <div className="flex items-center space-x-4">
-            <a
-              href={projectDet.projectDetails.projectLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-4 py-2 bg-black text-white rounded-md  flex items-center"
-            >
-              <ExternalLink className="w-4 h-4 mr-2" />
-              Visit Project
-            </a>
-            <a
-              href={projectDet.projectDetails.githubLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-4 py-2 bg-gray-200 text-gray-800 rounded-md hover:bg-gray-300 flex items-center"
-            >
-              <Github className="w-4 h-4 mr-2" />
-              GitHub
-            </a>
-            <button className="px-4 py-2 bg-gray-200 text-gray-800 rounded-md hover:bg-gray-300 flex items-center">
-              <BiSolidUpvote className="w-4 h-4 mr-2" />
-              80
-            </button>
-          </div>
-
-          {/*          */}
-
-          <div className="flex items-center space-x-4">
-            {/* <a
-              href={projectDet.projectDetails.projectLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-4 py-2 bg-black text-white rounded-md  flex items-center"
-            >
-              Acquisition
-            </a> */}
-            <Drawer>
-              <DrawerTrigger asChild>
-                {/* <Button variant="outline">Acquisition</Button> */}
-                <button className="px-6 py-3 bg-gray-200 text-gray-800  hover:bg-gray-300 transition duration-300 flex items-center border">
-                  Acquastion
-                </button>
-              </DrawerTrigger>
-              <DrawerContent>
-                <DrawerHeader>
-                  <DrawerTitle>Acquisition Proposal</DrawerTitle>
-                  <DrawerDescription>
-                    Fill out this form with your acquisition details. Click
-                    submit when youre done.
-                  </DrawerDescription>
-                </DrawerHeader>
-                <form onSubmit={handleSubmit} className="px-4">
-                  <div className="grid gap-4 py-4">
-                    <div className="grid grid-cols-4 items-center gap-4">
-                      <Label htmlFor="name" className="text-right">
-                        Name
-                      </Label>
-                      <Input
-                        id="name"
-                        placeholder="Your name"
-                        className="col-span-3"
-                        required
-                      />
-                    </div>
-                    <div className="grid grid-cols-4 items-center gap-4">
-                      <Label htmlFor="company" className="text-right">
-                        Company
-                      </Label>
-                      <Input
-                        id="company"
-                        placeholder="Your company"
-                        className="col-span-3"
-                        required
-                      />
-                    </div>
-                    <div className="grid grid-cols-4 items-center gap-4">
-                      <Label htmlFor="price" className="text-right">
-                        Price Offering
-                      </Label>
-                      <Input
-                        id="price"
-                        placeholder="$0.00"
-                        type="number"
-                        min="0"
-                        step="0.01"
-                        className="col-span-3"
-                        required
-                      />
-                    </div>
-                    {/* <div className="grid grid-cols-4 items-center gap-4">
+            <div className="flex mt-6  space-x-5">
+              <Drawer>
+                <DrawerTrigger asChild>
+                  {/* <Button variant="outline">Acquisition</Button> */}
+                  <button className="px-6 py-2 rounded-md bg-gray-200 text-gray-800  hover:bg-gray-300 transition duration-300 flex items-center border">
+                    Acquastion
+                  </button>
+                </DrawerTrigger>
+                <DrawerContent>
+                  <DrawerHeader>
+                    <DrawerTitle>Acquisition Proposal</DrawerTitle>
+                    <DrawerDescription>
+                      Fill out this form with your acquisition details. Click
+                      submit when youre done.
+                    </DrawerDescription>
+                  </DrawerHeader>
+                  <form onSubmit={handleSubmit} className="px-4">
+                    <div className="grid gap-4 py-4">
+                      <div className="grid grid-cols-4 items-center gap-4">
+                        <Label htmlFor="name" className="text-right">
+                          Name
+                        </Label>
+                        <Input
+                          id="name"
+                          placeholder="Your name"
+                          className="col-span-3"
+                          required
+                        />
+                      </div>
+                      <div className="grid grid-cols-4 items-center gap-4">
+                        <Label htmlFor="company" className="text-right">
+                          Company
+                        </Label>
+                        <Input
+                          id="company"
+                          placeholder="Your company"
+                          className="col-span-3"
+                          required
+                        />
+                      </div>
+                      <div className="grid grid-cols-4 items-center gap-4">
+                        <Label htmlFor="price" className="text-right">
+                          Price Offering
+                        </Label>
+                        <Input
+                          id="price"
+                          placeholder="$0.00"
+                          type="number"
+                          min="0"
+                          step="0.01"
+                          className="col-span-3"
+                          required
+                        />
+                      </div>
+                      {/* <div className="grid grid-cols-4 items-center gap-4">
                       <Label htmlFor="target" className="text-right">
                         Target Company
                       </Label>
@@ -237,57 +197,98 @@ export default function Component() {
                         required
                       />
                     </div> */}
-                    <div className="grid grid-cols-4 items-center gap-4">
-                      <Label htmlFor="date" className="text-right">
-                        Proposed Date
-                      </Label>
-                      <Popover>
-                        <PopoverTrigger asChild>
-                          <Button
-                            variant={"outline"}
-                            className={cn(
-                              "w-[280px] justify-start text-left font-normal",
-                              !date && "text-muted-foreground"
-                            )}
-                          >
-                            <CalendarIcon className="mr-2 h-4 w-4" />
-                            {date ? (
-                              format(date, "PPP")
-                            ) : (
-                              <span>Pick a date</span>
-                            )}
-                          </Button>
-                        </PopoverTrigger>
-                        <PopoverContent className="w-auto p-0">
-                          <Calendar
-                            mode="single"
-                            selected={date}
-                            onSelect={setDate}
-                            initialFocus
-                          />
-                        </PopoverContent>
-                      </Popover>
+                      <div className="grid grid-cols-4 items-center gap-4">
+                        <Label htmlFor="date" className="text-right">
+                          Proposed Date
+                        </Label>
+                        <Popover>
+                          <PopoverTrigger asChild>
+                            <Button
+                              variant={"outline"}
+                              className={cn(
+                                "w-[280px] justify-start text-left font-normal",
+                                !date && "text-muted-foreground"
+                              )}
+                            >
+                              <CalendarIcon className="mr-2 h-4 w-4" />
+                              {date ? (
+                                format(date, "PPP")
+                              ) : (
+                                <span>Pick a date</span>
+                              )}
+                            </Button>
+                          </PopoverTrigger>
+                          <PopoverContent className="w-auto p-0">
+                            <Calendar
+                              mode="single"
+                              selected={date}
+                              onSelect={setDate}
+                              initialFocus
+                            />
+                          </PopoverContent>
+                        </Popover>
+                      </div>
+                      <div className="grid grid-cols-4 items-center gap-4">
+                        <Label htmlFor="comments" className="text-right">
+                          Comments
+                        </Label>
+                        <Textarea
+                          id="comments"
+                          placeholder="Additional comments"
+                          className="col-span-3"
+                        />
+                      </div>
                     </div>
-                    <div className="grid grid-cols-4 items-center gap-4">
-                      <Label htmlFor="comments" className="text-right">
-                        Comments
-                      </Label>
-                      <Textarea
-                        id="comments"
-                        placeholder="Additional comments"
-                        className="col-span-3"
-                      />
-                    </div>
-                  </div>
-                  <DrawerFooter>
-                    <Button type="submit">Submit Proposal</Button>
-                    <DrawerClose asChild>
-                      <Button variant="outline">Cancel</Button>
-                    </DrawerClose>
-                  </DrawerFooter>
-                </form>
-              </DrawerContent>
-            </Drawer>
+                    <DrawerFooter>
+                      <Button type="submit">Submit Proposal</Button>
+                      <DrawerClose asChild>
+                        <Button variant="outline">Cancel</Button>
+                      </DrawerClose>
+                    </DrawerFooter>
+                  </form>
+                </DrawerContent>
+              </Drawer>
+              <a
+                href={projectDet.projectDetails.githubLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-4 py-2 bg-gray-200 text-gray-800 rounded-md hover:bg-gray-300 flex items-center"
+              >
+                <Github className="w-4 h-4 mr-2" />
+                GitHub
+              </a>
+              <button className="px-4 py-2 bg-gray-200 text-gray-800 rounded-md hover:bg-gray-300 flex items-center">
+                <BiSolidUpvote className="w-4 h-4 mr-2" />
+                80
+              </button>
+              <a
+                href={projectDet.projectDetails.projectLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-4 py-2 bg-black text-white rounded-md  flex items-center"
+              >
+                <ExternalLink className="w-4 h-4 mr-2" />
+                Visit Project
+              </a>
+            </div>
+          </div>
+        </div>
+        <div className="flex flex-col items-center space-y-4">
+          <div className="flex items-center space-x-4"></div>
+
+          {/*          */}
+
+          <div className="flex items-center space-x-4">
+            {/*            
+            <a
+              href={projectDet.projectDetails.projectLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-4 py-2 bg-black text-white rounded-md  flex items-center"
+            >
+              <ExternalLink className="w-4 h-4 mr-2" />
+              Visit Project
+            </a> */}
           </div>
         </div>
       </header>

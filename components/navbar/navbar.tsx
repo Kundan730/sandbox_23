@@ -31,17 +31,18 @@ const Navbar: React.FC<NavbarProps> = ({
   };
 
   return (
-    <div className="border-b md:py-0 px-4 md:px-6 py-5"
-    style={{
-      backgroundImage:"url('/top-left-right.svg')"
-    }}
+    <div
+      className="border-b md:py-0 px-4 md:px-6 py-5 bg-white"
+      style={{
+        backgroundImage: "url('/top-left-right.svg')",
+      }}
     >
       <div className="flex items-center justify-between py-5">
         <div className="flex items-center">
           {/* <Logo /> */}
           {/* <Search /> */}
-          <Link href={"/"} >
-          <img src="/logo/sandboxlogo.png" className="h-10 w-auto" alt="" />
+          <Link href={"/"}>
+            <img src="/logo/sandboxlogo.png" className="h-10 w-auto" alt="" />
           </Link>
         </div>
 
@@ -52,7 +53,10 @@ const Navbar: React.FC<NavbarProps> = ({
         <div className="flex items-center text-sm space-x-6 cursor-pointer">
           {authenticatedUser ? (
             <>
-              <Submit products={products} authenticatedUser={authenticatedUser} />
+              <Submit
+                products={products}
+                authenticatedUser={authenticatedUser}
+              />
               <NotificationIcon notifications={notifications} />
               <Avatar authenticatedUser={authenticatedUser} />
             </>
