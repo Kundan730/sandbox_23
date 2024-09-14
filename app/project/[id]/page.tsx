@@ -4,7 +4,6 @@ import { ArrowUpRight } from "lucide-react";
 import { ProjectShowcase } from "@/lib/types";
 import { projects } from "@/lib/testdata";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-
 import {
   User,
   MessageSquare,
@@ -13,6 +12,29 @@ import {
   ThumbsUp,
   ThumbsDown,
 } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import {
+  Drawer,
+  DrawerClose,
+  DrawerContent,
+  DrawerDescription,
+  DrawerFooter,
+  DrawerHeader,
+  DrawerTitle,
+  DrawerTrigger,
+} from "@/components/ui/drawer";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
+import { Calendar } from "@/components/ui/calendar";
+import { CalendarIcon } from "lucide-react";
+import { format } from "date-fns";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
+import { cn } from "@/lib/utils";
 
 const ProjectShowcaseComponent: React.FC<{ productData: ProjectShowcase }> = ({
   productData,
@@ -31,8 +53,14 @@ const ProjectShowcaseComponent: React.FC<{ productData: ProjectShowcase }> = ({
     views,
     name,
   } = productData;
-
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const [date, setDate] = useState<Date>();
+
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    // Handle form submission logic here
+    console.log("Form submitted");
+  };
 
   return (
     <div
@@ -68,13 +96,139 @@ const ProjectShowcaseComponent: React.FC<{ productData: ProjectShowcase }> = ({
             </div>
           </div>
         </div>
-        <div className="mt-6 md:mt-0 flex space-x-4">
-          <button className="px-6 py-3 bg-black text-white   transition duration-300 flex items-center">
-            Visit Project <ArrowUpRight className="ml-2 h-5 w-5" />
-          </button>
-          <button className="px-6 py-3 bg-gray-200 text-gray-800  hover:bg-gray-300 transition duration-300 flex items-center">
-            Upvote 90
-          </button>
+        <div className=" flex flex-col space-y-4">
+          <div className="flex space-x-4">
+            <button className="px-6 py-3 bg-black text-white   transition duration-300 flex items-center">
+              Visit Project <ArrowUpRight className="ml-2 h-5 w-5" />
+            </button>
+            <button className="px-6 py-3 bg-gray-200 text-gray-800  hover:bg-gray-300 transition duration-300 flex items-center">
+              Upvote 90
+            </button>
+          </div>
+          <div className="flex space-x-4 ">
+            <button className="px-6 py-3 bg-gray-200 text-gray-800  hover:bg-gray-300 transition duration-300 flex items-center border">
+              Gthub Link
+            </button>
+            {/* <button className="px-6 py-3 bg-gray-200 text-gray-800  hover:bg-gray-300 transition duration-300 flex items-center border">
+              Acquastion
+            </button> */}
+            <Drawer>
+              <DrawerTrigger asChild>
+                {/* <Button variant="outline">Acquisition</Button> */}
+                <button className="px-6 py-3 bg-gray-200 text-gray-800  hover:bg-gray-300 transition duration-300 flex items-center border">
+                  Acquastion
+                </button>
+              </DrawerTrigger>
+              <DrawerContent>
+                <DrawerHeader>
+                  <DrawerTitle>Acquisition Proposal</DrawerTitle>
+                  <DrawerDescription>
+                    Fill out this form with your acquisition details. Click
+                    submit when youre done.
+                  </DrawerDescription>
+                </DrawerHeader>
+                <form onSubmit={handleSubmit} className="px-4">
+                  <div className="grid gap-4 py-4">
+                    <div className="grid grid-cols-4 items-center gap-4">
+                      <Label htmlFor="name" className="text-right">
+                        Name
+                      </Label>
+                      <Input
+                        id="name"
+                        placeholder="Your name"
+                        className="col-span-3"
+                        required
+                      />
+                    </div>
+                    <div className="grid grid-cols-4 items-center gap-4">
+                      <Label htmlFor="company" className="text-right">
+                        Company
+                      </Label>
+                      <Input
+                        id="company"
+                        placeholder="Your company"
+                        className="col-span-3"
+                        required
+                      />
+                    </div>
+                    <div className="grid grid-cols-4 items-center gap-4">
+                      <Label htmlFor="price" className="text-right">
+                        Price Offering
+                      </Label>
+                      <Input
+                        id="price"
+                        placeholder="$0.00"
+                        type="number"
+                        min="0"
+                        step="0.01"
+                        className="col-span-3"
+                        required
+                      />
+                    </div>
+                    {/* <div className="grid grid-cols-4 items-center gap-4">
+                      <Label htmlFor="target" className="text-right">
+                        Target Company
+                      </Label>
+                      <Input
+                        id="target"
+                        placeholder="Company to acquire"
+                        className="col-span-3"
+                        required
+                      />
+                    </div> */}
+                    <div className="grid grid-cols-4 items-center gap-4">
+                      <Label htmlFor="date" className="text-right">
+                        Proposed Date
+                      </Label>
+                      <Popover>
+                        <PopoverTrigger asChild>
+                          <Button
+                            variant={"outline"}
+                            className={cn(
+                              "w-[280px] justify-start text-left font-normal",
+                              !date && "text-muted-foreground"
+                            )}
+                          >
+                            <CalendarIcon className="mr-2 h-4 w-4" />
+                            {date ? (
+                              format(date, "PPP")
+                            ) : (
+                              <span>Pick a date</span>
+                            )}
+                          </Button>
+                        </PopoverTrigger>
+                        <PopoverContent className="w-auto p-0">
+                          <Calendar
+                            mode="single"
+                            selected={date}
+                            onSelect={setDate}
+                            initialFocus
+                          />
+                        </PopoverContent>
+                      </Popover>
+                    </div>
+                    <div className="grid grid-cols-4 items-center gap-4">
+                      <Label htmlFor="comments" className="text-right">
+                        Comments
+                      </Label>
+                      <Textarea
+                        id="comments"
+                        placeholder="Additional comments"
+                        className="col-span-3"
+                      />
+                    </div>
+                  </div>
+                  <DrawerFooter>
+                    <Button type="submit">Submit Proposal</Button>
+                    <DrawerClose asChild>
+                      <Button variant="outline">Cancel</Button>
+                    </DrawerClose>
+                  </DrawerFooter>
+                </form>
+              </DrawerContent>
+            </Drawer>
+            {/* <AcquisitionDrawer /> */}
+          </div>
         </div>
       </div>
 
@@ -111,22 +265,6 @@ const ProjectShowcaseComponent: React.FC<{ productData: ProjectShowcase }> = ({
               ))}
             </div>
           </div>
-          {/* 
-          <div className="mt-8 bg-white p-6  ">
-            <h3 className="text-2xl font-semibold mb-4">Key Features</h3>
-            <ul className="space-y-2">
-              {projectDetails.features.map((feature, index) => (
-                <li key={index} className="flex items-start">
-                  <div className="flex-shrink-0 w-6 h-6 rounded-full bg-blue-100 flex items-center justify-center mr-3 mt-1">
-                    <span className="text-blue-600 text-sm font-semibold">
-                      {index + 1}
-                    </span>
-                  </div>
-                  <span className="text-gray-700">{feature}</span>
-                </li>
-              ))}
-            </ul>
-          </div> */}
         </div>
         <div
           className="w-1 h-full "
@@ -181,44 +319,6 @@ const ProjectShowcaseComponent: React.FC<{ productData: ProjectShowcase }> = ({
         <h1 className="text-4xl  text-center ">Write your feedback</h1>
         <CommentSystem />
       </div>
-      {/* <div className="mt-12 flex justify-between items-center  p-6  ">
-        <div className="flex space-x-8">
-          <div className="flex items-center">
-            <Star className="h-6 w-6 text-yellow-400 mr-2" />
-            <span className="text-lg font-semibold">{rating} Rating</span>
-          </div>
-          <div className="flex items-center">
-            <Eye className="h-6 w-6 text-blue-400 mr-2" />
-            <span className="text-lg font-semibold">{views} Views</span>
-          </div>
-          <div className="flex items-center">
-            <Calendar className="h-6 w-6 text-green-400 mr-2" />
-            <span className="text-lg font-semibold">
-              Created: {String(creationDate)}
-            </span>
-          </div>
-          <div className="flex items-center">
-            <Clock className="h-6 w-6 text-purple-400 mr-2" />
-            <span className="text-lg font-semibold">
-              Updated: {String(lastUpdate)}
-            </span>
-          </div>
-        </div>
-        <div className="flex space-x-6">
-          <button className="text-gray-600 hover:text-gray-800">
-            <Monitor className="h-6 w-6" />
-          </button>
-          <button className="text-gray-600 hover:text-gray-800">
-            <Bookmark className="h-6 w-6" />
-          </button>
-          <button className="text-gray-600 hover:text-gray-800">
-            <Share2 className="h-6 w-6" />
-          </button>
-          <button className="text-gray-600 hover:text-gray-800">
-            <BarChart2 className="h-6 w-6" />
-          </button>
-        </div>
-      </div> */}
 
       {selectedImage && (
         <div

@@ -2,7 +2,7 @@ import Link from "next/link";
 export const HeaderComponent = () => {
   return (
     <div
-      className="flex flex-col w-full"
+      className="flex flex-col w-full bg-white"
       style={{
         backgroundImage: "url('/top.svg')",
       }}
