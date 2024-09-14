@@ -1,7 +1,7 @@
 <br/>
 <p align="center">
   <a href="https://github.com/Kundan730/sandbox_23">
-    <img src="https://i.ibb.co/rwMhd74/sandboxlogo.png" alt="Logo" width="80" height="80">
+    <img src="https://i.ibb.co/tKfgk8D/sandlogo.png" alt="Logo" width="80" height="80">
   </a>
 
   <h3 align="center">Sandbox - One platform for all your projects</h3>
