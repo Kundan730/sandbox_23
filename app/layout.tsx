@@ -28,9 +28,9 @@ const RootLayout = async ({
 
     // get the user from the server
 
-    // const authenticatedUser = await auth();
-    // const notifications = await getNotifications();
-    // const products = await getProductsByUserId(authenticatedUser?.user?.id || "");
+    const authenticatedUser = await auth();
+    const notifications = await getNotifications();
+    const products = await getProductsByUserId(authenticatedUser?.user?.id || "");
   
   
   return (
@@ -45,9 +45,9 @@ const RootLayout = async ({
       <body className="bg-white">
         <Suspense fallback={<Spinner />}>
           <Navbar
-            // authenticatedUser={authenticatedUser}
-            // notifications={notifications}
-            // products={products}
+            authenticatedUser={authenticatedUser}
+            notifications={notifications}
+            products={products}
           />
         {children}
         </Suspense>
