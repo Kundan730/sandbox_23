@@ -1,13 +1,14 @@
 import React from "react";
-import {
-  Calendar,
-  Clock,
-  FileText,
-  PenTool,
-  Search,
-  Settings,
-  Star,
-} from "lucide-react";
+// import {
+//   Calendar,
+//   Clock,
+//   FileText,
+//   PenTool,
+//   Search,
+//   Settings,
+//   Star,
+// } from "lucide-react";
+import { Brain, Code, Cloudy, Wrench, Search, Boxes } from "lucide-react";
 
 import {
   Command,
@@ -33,54 +34,52 @@ export const LandingPageCommand = () => {
       />
       <CommandList>
         <CommandEmpty>No results found.</CommandEmpty>
-        <CommandGroup heading="Popular Tools">
+        <CommandGroup heading="Popular Tracks">
           <CommandItem className="py-3">
-            <PenTool className="mr-2 h-5 w-5" />
-            <span className="font-medium">Notion</span>
-            <span className="ml-auto text-xs text-muted-foreground">
+            <Brain className="mr-2 h-5 w-5" />
+            <span className="text-base">AI/ML</span>
+            {/* <span className="ml-auto text-xs text-muted-foreground">
               Productivity
-            </span>
+            </span> */}
           </CommandItem>
           <CommandItem className="py-3">
-            <Clock className="mr-2 h-5 w-5" />
-            <span className="font-medium">Time Doctor</span>
-            <span className="ml-auto text-xs text-muted-foreground">
+            <Boxes className="mr-2 h-5 w-5" />
+            <span className="text-base">BlockChain</span>
+            {/* <span className="ml-auto text-xs text-muted-foreground">
               Time Tracking
-            </span>
+            </span> */}
           </CommandItem>
           <CommandItem className="py-3">
-            <Calendar className="mr-2 h-5 w-5" />
-            <span className="font-medium">Asana</span>
-            <span className="ml-auto text-xs text-muted-foreground">
+            <Cloudy className="mr-2 h-5 w-5" />
+            <span className="text-base">Cloud Computing</span>
+            {/* <span className="ml-auto text-xs text-muted-foreground">
               Project Management
-            </span>
+            </span> */}
           </CommandItem>
         </CommandGroup>
         <CommandSeparator />
-        <CommandGroup heading="Categories">
+        <CommandGroup heading="Categories" className="text-slate-500">
           <CommandItem>
-            <FileText className="mr-2 h-4 w-4" />
-            <span>Document Editors</span>
+            <Code className="mr-2 h-5 w-5" />
+            <span className="text-base">JavaScript</span>
           </CommandItem>
           <CommandItem>
-            <Star className="mr-2 h-4 w-4" />
-            <span>Task Management</span>
+            <Code className="mr-2 h-5 w-5" />
+            <span className="text-base">Python</span>
           </CommandItem>
+
+          <CommandItem>
+            <Code className="mr-2 h-5 w-5" />
+            <span className="text-base">BlockChain</span>
+          </CommandItem>
+          {/* 
           <CommandItem>
             <Settings className="mr-2 h-4 w-4" />
             <span>Workflow Automation</span>
-          </CommandItem>
+          </CommandItem> */}
         </CommandGroup>
         <CommandSeparator />
-        <CommandGroup heading="Special Offer">
-          <CommandItem className="py-3 text-green-600">
-            <Search className="mr-2 h-5 w-5" />
-            <span className="font-medium">
-              Get up to 6 months free of Notion + unlimited AI
-            </span>
-          </CommandItem>
-        </CommandGroup>
       </CommandList>
     </Command>
-  );
+  );
 };
